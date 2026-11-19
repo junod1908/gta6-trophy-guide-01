@@ -44,7 +44,11 @@ export function renderRoadmap(section, trophies, state, onSelect) {
       h('h3', 'stage-title', `Stage ${stage.n} — ${stage.title}`),
       h('span', 'stage-progress', `${done}/${inStage.length} earned`),
     );
-    block.append(head, h('p', 'stage-note', stage.note));
+    const bar = h('div', 'counter-bar stage-bar');
+    const fill = h('div', 'counter-fill');
+    fill.style.width = inStage.length === 0 ? '0%' : `${(done / inStage.length) * 100}%`;
+    bar.append(fill);
+    block.append(head, h('p', 'stage-note', stage.note), bar);
     const chips = h('div', 'chip-grid');
     chips.append(...inStage.map((trophy) => trophyChip(trophy, state, onSelect)));
     block.append(chips);

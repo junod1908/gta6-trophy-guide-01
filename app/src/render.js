@@ -40,6 +40,7 @@ export function renderProgress(trophies, state) {
 function badgesFor(trophy, state) {
   const badges = [];
   badges.push(h('span', 'tag tag-kind', KIND_LABEL[trophy.kind] ?? trophy.kind));
+  badges.push(h('span', 'tag tag-stage', `Roadmap stage ${trophy.stage}`));
   if (trophy.missable) badges.push(h('span', 'tag tag-missable', 'Missable watch'));
   if (trophy.target) {
     const count = counterOf(state, trophy);

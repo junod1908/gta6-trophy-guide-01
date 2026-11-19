@@ -73,7 +73,9 @@ export async function loadTrophies() {
   if (!Array.isArray(trophies) || trophies.length === 0) {
     throw new Error('trophies.json holds no trophies array');
   }
-  return trophies;
+  // The list is shown in official order; sort by id so the order survives
+  // an untidy hand edit of the data file.
+  return [...trophies].sort((a, b) => (a.id ?? 0) - (b.id ?? 0));
 }
 
 export function formatTarget(value) {

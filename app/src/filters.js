@@ -10,6 +10,8 @@
 // name and official description are replaced until it is earned. Earned
 // story trophies, and every non-story trophy, always show in full.
 
+import { STAGE_BY_N } from './data.js';
+
 export function emptyFilters() {
   return { query: '', kind: 'all', grade: 'all', status: 'all', missableOnly: false };
 }
@@ -30,7 +32,11 @@ export function displayDescription(trophy, state) {
 }
 
 function searchableText(trophy) {
-  return [trophy.name, trophy.description, trophy.kind, trophy.grade, trophy.guide]
+  // The roadmap stage's title is searchable too, so "strangers" or
+  // "collectibles" finds the stage's trophies even when a guide happens
+  // not to repeat the word.
+  const stageTitle = STAGE_BY_N[trophy.stage]?.title ?? '';
+  return [trophy.name, trophy.description, trophy.kind, trophy.grade, trophy.guide, stageTitle]
     .join(' ')
     .toLowerCase();
 }

@@ -25,8 +25,15 @@ import { buildDossier } from './vendor/makefun-frontend.ts';
 const here = fileURLToPath(new URL('.', import.meta.url));
 const out = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
-// The entry is only complete with its screenshots in place: refuse to hand
-// in a dossier the gate would reject for a missing or empty screenshots/.
+// The entry is only complete with its page and screenshots in place:
+// refuse to hand in a dossier the gate would reject for a missing app or a
+// missing or empty screenshots/.
+if (!existsSync(join(here, 'app', 'index.html'))) {
+  throw new Error('app/index.html is missing: the guide has no page to hand in');
+}
+if (!existsSync(join(here, 'app', 'data', 'trophies.json'))) {
+  throw new Error('app/data/trophies.json is missing: the guide has no trophy list to hand in');
+}
 const shotsDir = join(here, 'screenshots');
 const shotCount = existsSync(shotsDir)
   ? readdirSync(shotsDir).filter((name) => /\.(png|jpe?g)$/i.test(name)).length

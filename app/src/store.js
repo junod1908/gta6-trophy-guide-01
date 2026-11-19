@@ -88,6 +88,15 @@ export function setSpoiler(state, on) {
   saveState(state);
 }
 
+// Clears every earned flag and counter while keeping the spoiler setting:
+// starting a fresh playthrough should not force a player to re-hide the
+// story trophies they have not reached yet.
+export function resetProgress(state) {
+  state.earned = {};
+  state.counters = {};
+  saveState(state);
+}
+
 // The export file: earned names as a list (readable, diffable), counters by
 // trophy name, and the spoiler setting — stamped with the app and version
 // so an import can refuse a file that is not one of ours.

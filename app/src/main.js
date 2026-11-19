@@ -15,6 +15,7 @@ import {
   isEarned,
   loadState,
   parseImport,
+  resetProgress,
   saveState,
   setCounter,
   setEarned,
@@ -60,6 +61,18 @@ const saveNoteEl = document.getElementById('save-note');
 
 function selectedTrophy() {
   return trophies.find((trophy) => trophy.name === selectedName) ?? null;
+}
+
+// One rule, applied everywhere state enters the app (first load, demo seed,
+// import): a counter that has reached its trophy's tracked target means
+// the trophy is earned. setCounter applies it live; this pass keeps a
+// stored or imported record honest when it carries the counter alone.
+function applyCounterEarned() {
+  for (const trophy of trophies) {
+    if (trophy.target && (state.counters[trophy.name] ?? 0) >= trophy.target) {
+      state.earned[trophy.name] = true;
+    }
+  }
 }
 
 function update() {
@@ -184,14 +197,14 @@ function wireToolbar() {
       return;
     }
     state = imported;
+    applyCounterEarned();
     saveState(state);
     document.getElementById('spoiler-toggle').checked = state.spoiler;
     saveNoteEl.textContent = 'Progress imported and saved in this browser.';
     update();
   });
   document.getElementById('reset-btn').addEventListener('click', () => {
-    state = { earned: {}, counters: {}, spoiler: state.spoiler };
-    saveState(state);
+    resetProgress(state);
     saveNoteEl.textContent = 'Progress cleared; the spoiler setting was kept.';
     update();
   });
@@ -203,6 +216,7 @@ function wireToolbar() {
 async function boot() {
   trophies = await loadTrophies();
   if (shot) seedDemo();
+  applyCounterEarned();
   if (!selectedName && trophies.length > 0) selectedName = trophies[0].name;
   buildChips();
   wireToolbar();
