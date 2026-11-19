@@ -44,6 +44,8 @@ if (shotCount < 3 || shotCount > 4) {
   throw new Error(`screenshots/ must hold 3 or 4 images, found ${shotCount}`);
 }
 
+// The dossier below is built from these output copies, so the summary the
+// judge reads describes exactly the files that were handed in.
 mkdirSync(out, { recursive: true });
 cpSync(join(here, 'app'), join(out, 'app'), { recursive: true });
 mkdirSync(join(out, 'screenshots'), { recursive: true });

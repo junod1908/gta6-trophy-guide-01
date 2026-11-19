@@ -22,6 +22,8 @@ import {
   setSpoiler,
 } from './store.js';
 
+// The seed's fixed dozen: trophies a real player could plausibly hold
+// part-way through a run, never an end-state the tracker could not reach.
 const DEMO_EARNED = [
   'Just Like Paradise',
   'Paradise Lost',

@@ -342,6 +342,8 @@ main { max-width: 1220px; margin: 0 auto; padding: 0 24px 30px; }
 
 .row-main:focus-visible, .chip:focus-visible { outline-offset: -2px; }
 
+/* Narrow screens: the masthead stacks and the detail pane drops below the
+   checklist instead of sitting beside it. */
 @media (max-width: 900px) {
   .masthead { flex-direction: column; }
   .layout { grid-template-columns: minmax(0, 1fr); }

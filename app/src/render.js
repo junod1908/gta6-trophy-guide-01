@@ -17,6 +17,8 @@ function h(tag, className, text) {
   return node;
 }
 
+// The ring in index.html has radius 52, so this is the dash length a full
+// ring needs; the earned fraction of it is hidden via stroke-dashoffset.
 const RING_CIRCUMFERENCE = 2 * Math.PI * 52;
 
 export function renderProgress(trophies, state) {

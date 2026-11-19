@@ -17,6 +17,8 @@ function h(tag, className, text) {
   return node;
 }
 
+// A chip is a real button, keyboard-focusable like everything else here:
+// selecting it opens that trophy's guide in the checklist view.
 function trophyChip(trophy, state, onSelect) {
   const chip = h('button', `chip${isEarned(state, trophy) ? ' is-earned' : ''}`);
   chip.type = 'button';

@@ -58,6 +58,8 @@ export function matchesFilters(trophy, filters, state) {
   return true;
 }
 
+// The chip rows label each filter with its count, so a player can see how
+// much a filter holds before picking it; both counters include 'all'.
 export function countByKind(trophies) {
   const counts = { all: trophies.length };
   for (const trophy of trophies) counts[trophy.kind] = (counts[trophy.kind] ?? 0) + 1;

@@ -5,6 +5,8 @@
 // names, descriptions and grades are the official PlayStation 5 list, and
 // each carries this guide's own kind, stage, target, missable flag and guide.
 
+// Display order for the four grades: the header tally and the grade filter
+// chips both walk this list, so the platinum always leads.
 export const GRADE_ORDER = ['platinum', 'gold', 'silver', 'bronze'];
 
 export const GRADE_LABEL = {

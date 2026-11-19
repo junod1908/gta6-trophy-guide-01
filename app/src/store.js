@@ -13,6 +13,8 @@ export function emptyState() {
   return { earned: {}, counters: {}, spoiler: false };
 }
 
+// A stored record that cannot be parsed, or parses to an unusable shape,
+// starts the tracker empty rather than breaking the page over old data.
 export function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
