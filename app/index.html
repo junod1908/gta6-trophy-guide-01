@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Ledger — GTA VI Trophy Guide &amp; Platinum Tracker</title>
+<meta name="description" content="An offline guide and tracker for all 55 Grand Theft Auto VI PlayStation 5 trophies: official names, descriptions and grades, a saved checklist, filters, a spoiler shield, a roadmap to the platinum and the missable trophies flagged.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-text">
+    <p class="kicker">Grand Theft Auto VI · PlayStation 5 · Offline guide &amp; tracker</p>
+    <h1>Leonida Ledger</h1>
+    <p class="tagline">Every one of the 55 official trophies — 1 platinum, 2 gold, 6 silver, 46 bronze — with a guide to each, a roadmap to the platinum, and the missable ones flagged before they can slip past you.</p>
+    <p class="source-line">Names, descriptions and grades exactly as PlayStation publishes them, as listed by <a href="https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/">Exophase</a> and <a href="https://psnprofiles.com/trophies/43531-grand-theft-auto-vi">PSNProfiles</a>. Guides, kinds, stages and flags are this guide's own, built from the official descriptions.</p>
+  </div>
+  <div class="progress-box" aria-label="Your progress">
+    <svg class="ring" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Progress ring">
+      <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+      <circle class="ring-fill" id="ring-fill" cx="60" cy="60" r="52"></circle>
+    </svg>
+    <p class="progress-numbers"><span id="earned-count">0</span> of 55 earned</p>
+    <ul class="grade-tally" id="grade-tally"></ul>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Views">
+  <button type="button" class="tab is-active" data-tab="checklist">Checklist &amp; guides</button>
+  <button type="button" class="tab" data-tab="roadmap">Roadmap to the platinum</button>
+  <button type="button" class="tab" data-tab="missables">Missable watch</button>
+</nav>
+
+<main>
+  <section id="view-checklist" class="view">
+    <div class="toolbar">
+      <div class="toolbar-row">
+        <label class="search-label">Search
+          <input id="search" type="search" placeholder="Name, description, mission, place…" autocomplete="off">
+        </label>
+        <label class="status-label">Show
+          <select id="status-filter">
+            <option value="all">All trophies</option>
+            <option value="earned">Earned</option>
+            <option value="open">Not yet earned</option>
+          </select>
+        </label>
+      </div>
+      <div class="toolbar-row">
+        <span class="chip-label" id="kind-label">Kind</span>
+        <div class="chip-row" id="kind-chips" role="group" aria-labelledby="kind-label"></div>
+      </div>
+      <div class="toolbar-row">
+        <span class="chip-label" id="grade-label">Grade</span>
+        <div class="chip-row" id="grade-chips" role="group" aria-labelledby="grade-label"></div>
+      </div>
+      <div class="toolbar-row toolbar-toggles">
+        <label class="switch"><input type="checkbox" id="missable-only"> Missable watch only</label>
+        <label class="switch"><input type="checkbox" id="spoiler-toggle"> Spoiler shield: hide story trophies until earned</label>
+      </div>
+      <div class="toolbar-row toolbar-actions">
+        <button type="button" id="export-btn">Export progress</button>
+        <button type="button" id="import-btn">Import progress</button>
+        <input type="file" id="import-file" accept="application/json,.json" hidden>
+        <button type="button" id="reset-btn">Reset all</button>
+        <span class="save-note" id="save-note">Progress is saved in this browser (localStorage).</span>
+      </div>
+    </div>
+
+    <p id="result-count" class="result-count" role="status"></p>
+
+    <div class="layout">
+      <ol id="trophy-list" class="trophy-list"></ol>
+      <aside id="detail" class="detail" aria-label="Trophy guide"></aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view" hidden></section>
+  <section id="view-missables" class="view" hidden></section>
+</main>
+
+<footer class="colophon">
+  <p><strong>Sources.</strong> Every trophy's name, description and grade is the official PlayStation 5 list, as listed by <a href="https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/">Exophase</a> and <a href="https://psnprofiles.com/trophies/43531-grand-theft-auto-vi">PSNProfiles</a> (the two agree on all 55); tracked targets are the counts PlayStation tracks, as listed by PSNProfiles. Each guide is written for this entry, in its own words, from the official description, and says plainly where a trigger is not yet verified in the game. Nothing here is copied from another guide, and the look is our own: no Rockstar Games logo, artwork or screenshots.</p>
+  <p><strong>Honest notes.</strong> The official list contains no online trophies, so the Online filter is empty by design. Missable flags are cautions read from the official descriptions, not confirmed missables; the game is new and the flags say so. This app runs entirely from its own files and makes no network request; your progress never leaves your browser unless you export it.</p>
+</footer>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
