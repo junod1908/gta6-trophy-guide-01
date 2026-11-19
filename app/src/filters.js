@@ -12,6 +12,7 @@
 
 import { STAGE_BY_N } from './data.js';
 
+// The toolbar's starting state: every condition open, nothing filtered out.
 export function emptyFilters() {
   return { query: '', kind: 'all', grade: 'all', status: 'all', missableOnly: false };
 }

@@ -4,6 +4,8 @@
 // to a JSON file and imported back — the file is the same shape the app
 // keeps, so an export from one browser restores exactly in another.
 
+// One versioned key: if the stored shape ever changes, the suffix bumps
+// rather than migrating a record the new shape cannot read.
 const STORAGE_KEY = 'leonida-ledger-v1';
 const EXPORT_APP = 'leonida-ledger';
 

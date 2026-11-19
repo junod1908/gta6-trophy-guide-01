@@ -30,6 +30,8 @@ body {
 
 a { color: var(--accent); }
 
+::selection { background: var(--accent); color: var(--accent-ink); }
+
 h1, h2, h3, .row-name, .stage-title {
   font-family: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
   font-weight: 600;

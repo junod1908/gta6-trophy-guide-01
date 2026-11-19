@@ -89,6 +89,9 @@ function update() {
   }
 }
 
+// The one set of handlers every view shares: checklist rows, roadmap chips
+// and missable cards all report through here, so a state change made
+// anywhere re-renders everywhere in the same way.
 const callbacks = {
   onToggle(trophy, earned) {
     setEarned(state, trophy, earned);

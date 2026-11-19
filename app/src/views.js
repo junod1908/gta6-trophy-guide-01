@@ -8,6 +8,8 @@ import { GRADE_LABEL, STAGES } from './data.js';
 import { displayName } from './filters.js';
 import { isEarned } from './store.js';
 
+// The same node builder as render.js: class plus optional text, the text
+// always assigned as textContent so trophy text is never parsed as markup.
 function h(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;

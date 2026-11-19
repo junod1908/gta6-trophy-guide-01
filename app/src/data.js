@@ -78,6 +78,8 @@ export async function loadTrophies() {
   return [...trophies].sort((a, b) => (a.id ?? 0) - (b.id ?? 0));
 }
 
+// Targets are counts and dollar amounts; the locale is pinned so a target
+// reads the same way (250,000 — never 250.000) in every player's browser.
 export function formatTarget(value) {
   return value.toLocaleString('en-US');
 }

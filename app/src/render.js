@@ -8,6 +8,8 @@ import { GRADE_LABEL, GRADE_ORDER, KIND_LABEL, STAGE_BY_N, formatTarget } from '
 import { displayDescription, displayName, isShielded } from './filters.js';
 import { counterOf, isEarned } from './store.js';
 
+// The one node builder for this view: every element goes through here so
+// class and text handling stay uniform — text always via textContent.
 function h(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
