@@ -161,6 +161,7 @@ function seedDemo() {
   if (shot === 'filters') {
     state.spoiler = true;
     filters.kind = 'story';
+    selectedName = 'Just Like Paradise';
   }
   if (shot === 'guide') selectedName = 'The Shootist';
 }
